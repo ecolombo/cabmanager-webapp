@@ -9,9 +9,9 @@
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="d-flex justify-content-end align-items-center">
-                                <a type="button" class="btn btn-dark me-1" [routerLink]="['/bookings/categories']">Manage Categories</a>
-                                <a type="button" class="btn btn-dark me-1" [routerLink]="['/bookings/locations']">Manage Locations</a>
-                                <!-- <button class="btn btn-dark me-1"   (click)="openModal(productModal)">Add Booking</button> -->
+                              <button class="btn btn-dark me-1"   (click)="openBookingDialog(bookingModal)">Add Booking</button>
+                              <a type="button" class="btn btn-dark me-1" [routerLink]="['/bookings/categories']">Manage Categories</a>
+                              <a type="button" class="btn btn-dark me-1" [routerLink]="['/bookings/locations']">Manage Locations</a>
                             </div>
                         </div>
                     </div>
@@ -39,11 +39,11 @@
                                 <td>{{ bkg.to.name }}</td>
                                 <td>{{ bkg.distance | number: '1.3'}} km</td>
                                 <td>{{ bkg.category.name }}</td>
-                                <td>{{ bkg.category.pricePerKM | currency:'EUR':'symbol':'1.0' }}</td>
-                                <td>{{ bkg.fare | currency:'EUR':'symbol':'1.0'}}</td>
+                                <td>{{ bkg.category.pricePerKM | currency:'EUR':'symbol':'1.2' }}</td>
+                                <td>{{ bkg.fare | currency:'EUR':'symbol':'1.2'}}</td>
                                 <td>
-                                  <!--<button type="button" class="btn btn-sm btn-dark me-1" (click)="openModal(productModal, prod)" >Update</button>
-                                  <button type="button" class="btn btn-sm btn-danger me-1">Delete</button>-->
+                                  <button type="button" class="btn btn-sm btn-dark me-1" (click)="openBookingDialog(bookingModal, bkg)" >Update</button>
+                                  <button type="button" class="btn btn-sm btn-danger me-1">Delete</button>
                                 </td>
                               </tr>                       
                         </tbody>
@@ -55,48 +55,21 @@
 </div>
 
 
-<!-- create / update product-->
+<!-- create / update booking -->
+
+<ng-template #bookingModal let-modal>
+    <app-addbooking [bookingInfo]="bookingInfo" (closeModal)="closeModal(bookingModal)"></app-addbooking>
+</ng-template>
+
+
 <!--
-    <ng-template #productModal let-modal>
-    <app-addproduct [productInfo]="productInfo" (closeModel)="closeModel(productModal)"></app-addproduct>
+
+<ng-template #categoryModal let-modal class="bg-modal">
+    <app-addcategory [categoryInfo]="categoryInfo" (closeModal)="closeModal(categoryModal)"></app-addcategory>
 </ng-template>
 
 
 <ng-template #productViewModal let-modal>
     <app-viewproduct [productInfo]="productInfo" (closeModel)="closeModel(productViewModal)"></app-viewproduct>
-</ng-template>
-
-
-<ng-template  #viewImageModal let-modal>
-    <div class="modal-header border-0 d-flex justify-content-between align-items-center">
-        <h3>Images</h3>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"> 
--->
-<!--
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-12 col-sm-2 px-0 border-right verticalScroll">
-            <ul class="list-group list-group-flush">
-              <li class="list-hover list-group-item" *ngFor="let imgSrc of tempImageFiles; index as idx"
-                (click)="selectedImageIdx = idx">
-                <div class="position-absolute mt-2" *ngIf="thumbnailImageIdx === idx">
-                  <h4 class="badge rounded-pill bg-secondary">Thumbnail Image</h4>
-                </div>
-                <img [src]="imgSrc" [alt]="imgSrc" class="img-fluid rounded shadow-sm" height="64px" loading="lazy">
-              </li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm-10">
-            <div class="sticky-top">
-              <img [src]="tempImageFiles[selectedImageIdx]" [alt]="tempImageFiles[selectedImageIdx]"
-                class="img-fluid shadow-sm img-style" loading="lazy" title="View Full Image" 
-                (click)="openImage(tempImageFiles[selectedImageIdx])">
-            </div>
-          </div>
-        </div>
-      </div>
-</ng-template>
-
+</ng-template> 
 -->

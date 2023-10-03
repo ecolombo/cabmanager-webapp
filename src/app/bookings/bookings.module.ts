@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { AddproductComponent } from './addproduct/addproduct.component';
 import { BookingsComponent } from './bookings.component';
 import { BookingsService } from 'src/app/services/bookings.service';
 import { RouterModule } from '@angular/router';
@@ -10,8 +9,7 @@ import { CategoriesService } from 'src/app/services/categories.service';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { LocationsComponent } from './locations/locations.component';
 import { AddlocationComponent } from './addlocation/addlocation.component';
-// import { AddcategoryComponent } from './addcategory/addcategory.component';
-
+import { AddbookingComponent } from './addbooking/addbooking.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +17,8 @@ import { AddlocationComponent } from './addlocation/addlocation.component';
     CategoriesComponent,
     AddcategoryComponent,
     LocationsComponent,
-    AddlocationComponent 
-    //,
-    //AddproductComponent,
-    //ViewproductComponent,
-    //DetailsproductComponent,
-    //AddcategoryComponent
+    AddlocationComponent,
+    AddbookingComponent
   ],
   imports: [
     CommonModule, RouterModule, ReactiveFormsModule

@@ -1,0 +1,84 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Booking Details</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()">
+    </button>
+  </div>
+  <div class="modal-body">
+      <form [formGroup]="bookingForm" ngNativeValidate (ngSubmit)="onSubmit()">
+          <div class="modal-body">
+
+            <div class="form-group m-0 mb-2">
+              <label for="User" class="text-sm">User</label>
+              <select id="User" name="user" class="form-select shadow-none form-control" formControlName="user"
+                [compareWith]="compareByUserId" (selectedValueChange)="onSelectedValueChangeUser($event)" required>
+                <option *ngFor="let usr of userList; index as idx" [ngValue]="usr">
+                    {{ usr.fullName }}
+                </option>
+              </select>
+            </div>            
+
+              <div class="form-group m-0 mb-2">
+                <label for="From" class="text-sm">From</label>
+                <select id="From" name="from" class="form-select shadow-none form-control" formControlName="from"
+                  [compareWith]="compareByLocationId" (ngModelChange)="onSelectedValueChangeLocation($event)" required>
+                  <option *ngFor="let location of locationList; index as idx" [ngValue]="location">
+                      {{ location.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group m-0 mb-2">
+                <label for="To" class="text-sm">To</label>
+                <select id="To" name="to" class="form-select shadow-none form-control" formControlName="to"
+                  [compareWith]="compareByLocationId" (ngModelChange)="onSelectedValueChangeLocation($event)" required>
+                  <option *ngFor="let location of locationList; index as idx" [ngValue]="location">
+                      {{ location.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group m-0 mb-2">
+                <label for="Category" class="text-sm">Category</label>
+                <select id="Category" name="category" class="form-select shadow-none form-control" formControlName="category"
+                  [compareWith]="compareByCategoryId" (ngModelChange)="onSelectValueChangeCategory($event)" required>
+                  <option *ngFor="let category of categoryList; index as idx" [ngValue]="category">
+                      {{ category.name }}
+                  </option>
+                </select>
+              </div>
+              
+              <div class="form-group col mt-2">
+                <label for="PricePerKM" class="text-sm">Price per km [&euro;]</label>
+                <input type="text" name="PricePerKM" formControlName="pricePerKM" class="form-control" placeholder="0.0">
+              </div>
+
+              <div class="form-group col mt-2">
+                <label for="Distance" class="text-sm">Distance [km]</label>
+                <input type="text" name="distance" formControlName="distance" class="form-control" placeholder="0.0">
+              </div>
+
+              <div class="form-group col mt-2">
+                <label for="Fare" class="text-sm">Fare [&euro;]</label>
+                <input type="text" name="fare" formControlName="fare" class="form-control" placeholder="0.0">
+              </div>
+
+
+
+           </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light btn-sm" data-bs-dismiss="modal" (click)="close()">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-dark btn-sm" [disabled]="loader">
+              Save
+              <span *ngIf="loader">&nbsp;</span>
+              <div *ngIf="loader" class="spinner-border spinner-border-sm text-white" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </button>
+      </div> 
+      </form>
+  </div>
+
+

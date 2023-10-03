@@ -10,11 +10,12 @@ import { BookingsModule } from './bookings/bookings.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    UsersComponent
+    UsersComponent    
   ],
   imports: [
     BrowserModule,
