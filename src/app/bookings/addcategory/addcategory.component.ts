@@ -11,22 +11,17 @@ import { Router } from '@angular/router';
 })
 export class AddcategoryComponent implements OnInit {
 
-  // prodCategoryBool: boolean = true;
   categoryForm:FormGroup = new FormGroup({});
   loader : boolean = false; // for Spinning loading...
-//categoryId: number;
-
 
   @Input()
   public categoryInfo:any;
 
   @Output()
-  public closeModel: EventEmitter<void> = new EventEmitter<void>();
+  public closeModal: EventEmitter<void> = new EventEmitter<void>();
   public errResponse: string ="";
 
-  constructor( private modalService: NgbModal,  private formBuilder:FormBuilder, private categoryService: CategoriesService, private router:Router) { 
-//    this.categoryId = 0;
-  }
+  constructor( private modalService: NgbModal,  private formBuilder:FormBuilder, private categoryService: CategoriesService, private router:Router) {   }
 
   ngOnInit(): void {
     if(this.categoryInfo) {
@@ -72,7 +67,7 @@ export class AddcategoryComponent implements OnInit {
     this.categoryService.add(this.categoryForm.getRawValue()).subscribe((response:any)=>{
       // console.log(response);
       // this.router.navigateByUrl('/bookings/categories');
-      window.location.href ="/bookings/categories"; // not very "single-app" but other solutions are complex
+      // window.location.href ="/bookings/categories"; // not very "single-app" but other solutions are complex
       this.close();
       },error =>{
         this.errResponse = error.error.message;
@@ -82,7 +77,7 @@ export class AddcategoryComponent implements OnInit {
   handleUpdate() {
     this.categoryService.update(this.categoryForm.getRawValue()).subscribe((response:any)=>{
       // console.log(response);
-      window.location.href ="/bookings/categories";
+      // window.location.href ="/bookings/categories";
         this.close();
       },error =>{
         this.errResponse = error.error.message;
@@ -91,6 +86,6 @@ export class AddcategoryComponent implements OnInit {
 
   close() {
 
-    this.closeModel.emit();
+    this.closeModal.emit();
   }
 }

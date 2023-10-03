@@ -8,6 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
+import { LocationsComponent } from './locations/locations.component';
+import { AddlocationComponent } from './addlocation/addlocation.component';
 // import { AddcategoryComponent } from './addcategory/addcategory.component';
 
 
@@ -15,7 +17,9 @@ import { AddcategoryComponent } from './addcategory/addcategory.component';
   declarations: [
     BookingsComponent,
     CategoriesComponent,
-    AddcategoryComponent 
+    AddcategoryComponent,
+    LocationsComponent,
+    AddlocationComponent 
     //,
     //AddproductComponent,
     //ViewproductComponent,

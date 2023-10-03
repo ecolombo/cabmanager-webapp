@@ -1,11 +1,11 @@
 <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Category Details</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Location Details</h5>
     <button type="button" class="btn-close" aria-label="Close" (click)="close()">
       <!-- <span aria-hidden="true">&times;</span> -->
     </button>
   </div>
   <div class="modal-body">
-      <form [formGroup]="categoryForm" ngNativeValidate (ngSubmit)="onSubmit()">
+      <form [formGroup]="locationForm" ngNativeValidate (ngSubmit)="onSubmit()">
           <div class="modal-body">
 
               <div class="form-group col mt-2">
@@ -14,10 +14,14 @@
               </div>
 
               <div class="form-group col mt-2">
-                <label for="PricePerKM" class="text-sm">Price per km [&euro;]</label>
-                <input type="number" name="PricePerKM" formControlName="pricePerKM" class="form-control" placeholder="0.00" step="0.01" required>
+                <label for="xCoord" class="text-sm">Longitude [m]</label>
+                <input type="number" name="xCoord" formControlName="xcoord" class="form-control" placeholder="0.000000000" step="0.000000001" required>
               </div>
 
+              <div class="form-group col mt-2">
+                <label for="yCoord" class="text-sm">Longitude [m]</label>
+                <input type="number" name="yCoord" formControlName="ycoord" class="form-control" placeholder="0.000000000" step="0.000000001" required>
+              </div>
            </div>
 
           <div class="modal-footer">

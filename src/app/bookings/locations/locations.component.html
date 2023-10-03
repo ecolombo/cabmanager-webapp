@@ -5,11 +5,11 @@
                 <div class="card-header bg-white border-0">
                     <div class="row">
                         <div class="col-12 col-sm-6">
-                            <h4>Categories</h4>
+                            <h4>Locations</h4>
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="d-flex justify-content-end align-items-center">
-                                <button class="btn btn-dark me-1" (click)="openCategoryDialog(categoryModal)">Add Category</button>
+                                <button class="btn btn-dark me-1" (click)="openLocationDialog(locationModal)">Add Location</button>
                             </div>
                         </div>
                     </div>
@@ -18,19 +18,21 @@
                     <table class="table table-flush m-0">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col">Cat.ID</th>
+                            <th scope="col">Loc.ID</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Price per km</th>
+                            <th scope="col">Longitude [m]</th>
+                            <th scope="col">Latitude [m]</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let cat of categoriesList; index as idx">
-                            <th scope="row">{{cat.categoryId}}</th>
+                          <tr *ngFor="let cat of locationsList; index as idx">
+                            <th scope="row">{{cat.locationId}}</th>
                             <td>{{cat.name}}</td>
-                            <td>{{cat.pricePerKM}}</td>
+                            <td>{{cat.xcoord}}</td>
+                            <td>{{cat.ycoord}}</td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-dark me-1 mb-1" (click)="openCategoryDialog(categoryModal,cat )" >Update</button>
-                                <button type="button" class="btn btn-sm btn-danger me-1 mb-1" (click)="delete(cat.categoryId)">Delete</button>
+                                <button type="button" class="btn btn-sm btn-dark me-1 mb-1" (click)="openLocationDialog(locationModal,cat )" >Update</button>
+                                <button type="button" class="btn btn-sm btn-danger me-1 mb-1" (click)="delete(cat.locationId)">Delete</button>
                             </td>
                           </tr>                          
                         </tbody>
@@ -54,7 +56,6 @@
     </div>
 </div>
 
-
-<ng-template #categoryModal let-modal class="bg-modal">
-    <app-addcategory [categoryInfo]="categoryInfo" (closeModal)="closeModal(categoryModal)"></app-addcategory>
+<ng-template #locationModal let-modal class="bg-modal">
+    <app-addlocation [locationInfo]="locationInfo" (closeModal)="closeModal(locationModal)"></app-addlocation>
 </ng-template>
