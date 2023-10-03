@@ -7,13 +7,15 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { AddcategoryComponent } from './addcategory/addcategory.component';
 // import { AddcategoryComponent } from './addcategory/addcategory.component';
 
 
 @NgModule({
   declarations: [
     BookingsComponent,
-    CategoriesComponent 
+    CategoriesComponent,
+    AddcategoryComponent 
     //,
     //AddproductComponent,
     //ViewproductComponent,

@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Pageable } from 'src/app/model/pageable.model';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-categories',
@@ -27,9 +28,9 @@ export class CategoriesComponent implements OnInit {
     })
   }
 
-  openProductCategoryDialog(modalRef:any, productCategoryObj = null) {
+  openProductCategoryDialog(modalRef:any, categoryObj = null) {
     this.modalService.open(modalRef);
-    this.categoryInfo = productCategoryObj;
+    this.categoryInfo = categoryObj;
   }
 
   closeModal(modalRef:any) {

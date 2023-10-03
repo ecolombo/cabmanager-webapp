@@ -9,7 +9,7 @@
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="d-flex justify-content-end align-items-center">
-                                <button class="btn btn-dark me-1" (click)="openProductCategoryDialog(prodCategoryModal)">Add Category</button>
+                                <button class="btn btn-dark me-1" (click)="openProductCategoryDialog(categoryModal)">Add Category</button>
                             </div>
                         </div>
                     </div>
@@ -45,6 +45,6 @@
 </div>
 
 
-<ng-template #prodCategoryModal let-modal class="bg-modal">
-<!--    <app-addcategory [categoryInfo]="categoryInfo" (closeModal)="closeModal(prodCategoryModal)"></app-addcategory> -->
+<ng-template #categoryModal let-modal class="bg-modal">
+    <app-addcategory [categoryInfo]="categoryInfo" (closeModal)="closeModal(categoryModal)"></app-addcategory>
 </ng-template>
