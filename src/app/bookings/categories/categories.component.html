@@ -1,0 +1,50 @@
+<div class="container-fluid py-3">
+    <div class="row w-100 m-0">
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white border-0">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <h4>Categories</h4>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="d-flex justify-content-end align-items-center">
+                                <button class="btn btn-dark me-1" (click)="openProductCategoryDialog(prodCategoryModal)">Add Category</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-flush m-0">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">Cat.ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price per km</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let cat of categoriesList; index as idx">
+                            <th scope="row">{{cat.categoryId}}</th>
+                            <td>{{cat.name}}</td>
+                            <td>{{cat.pricePerKM}}</td>
+                            <td>
+                                <!--
+                                <button type="button" class="btn btn-sm btn-dark me-1 mb-1" [disabled]="cat['categoryImageUrl'] === ''">View Image</button>
+                                <button type="button" class="btn btn-sm btn-dark me-1 mb-1" (click)="openProductCategoryDialog(prodCategoryModal,cat )" >Update</button>
+                                <button type="button" class="btn btn-sm btn-danger me-1 mb-1" (click)="delete(cat.categoryId)">Delete</button>
+                                -->
+                            </td>
+                          </tr>                          
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #prodCategoryModal let-modal class="bg-modal">
+<!--    <app-addcategory [categoryInfo]="categoryInfo" (closeModal)="closeModal(prodCategoryModal)"></app-addcategory> -->
+</ng-template>
