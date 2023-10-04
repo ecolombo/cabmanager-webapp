@@ -38,7 +38,7 @@ export class AddbookingComponent implements OnInit {
   ngOnInit(): void {
 
       this.usersService.getAll(this.pageableUsr).subscribe( (response:any)=> {
-      this.userList = response.content; });
+        this.userList = response.content; });
 
       this.locationsService.getAll(this.pageableLoc).subscribe( (response:any)=> {
       this.locationList = response.content; });
@@ -68,7 +68,7 @@ export class AddbookingComponent implements OnInit {
         fare: [{value: "", disabled: true }],
       });
     } else {
-      console.log("feeding data: "+bookingObj.user.fullName);
+      // console.log("feeding data: "+bookingObj.user.fullName);
       this.bookingForm = this.formBuilder.group({        
         bookingId: [null],
         user: [bookingObj.user, Validators.required],
@@ -156,7 +156,7 @@ export class AddbookingComponent implements OnInit {
   }
 
   handleCreate() {
-    console.log(this.bookingForm.getRawValue());
+    // console.log(this.bookingForm.getRawValue());
     this.bookingService.add(this.bookingForm.getRawValue()).subscribe((response:any)=>{
       this.close();
       },error =>{

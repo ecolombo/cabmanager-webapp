@@ -26,7 +26,8 @@ export class BookingsComponent implements OnInit {
 
   getBookings() {
     this.bookingsService.getAll(this.pageable).subscribe( (response:any)=> {
-      this.bookingsList = response.content;
+      // console.log("Booking Response: "+JSON.stringify(response));
+      this.bookingsList = response.data.content;
     })
     
     // Page scrolling:
@@ -34,7 +35,7 @@ export class BookingsComponent implements OnInit {
     let nextPageable = { ... this.pageable };
     nextPageable.page++;
     this.bookingsService.getAll(nextPageable).subscribe( (response:any)=> {
-      this.nextPageEnabled = (response.content.length == 0) ? false : true;
+      this.nextPageEnabled = (response.data.content.length == 0) ? false : true;
     })
     
   }

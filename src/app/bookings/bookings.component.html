@@ -43,7 +43,7 @@
                                 <td>{{ bkg.fare | currency:'EUR':'symbol':'1.2'}}</td>
                                 <td>
                                   <button type="button" class="btn btn-sm btn-dark me-1" (click)="openBookingDialog(bookingModal, bkg)" >Update</button>
-                                  <button type="button" class="btn btn-sm btn-danger me-1">Delete</button>
+                                  <button type="button" class="btn btn-sm btn-danger me-1" (click)="delete(bkg.bookingId)">Delete</button>
                                 </td>
                               </tr>                       
                         </tbody>

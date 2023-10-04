@@ -13,7 +13,7 @@ export class BookingsService {
     constructor(private httpClient: HttpClient) { }
 
     /** Get bookings List */
-    getAll(pageable:Pageable) {
+    getAll(pageable:Pageable) {        
         return this.httpClient.get<any[]>(`${this.BOOKINGS_URL}?page=${pageable.page}&size=${pageable.size}&sort=${pageable.sort}&sortOrder=${pageable.sortOrder}`);
     }
 
