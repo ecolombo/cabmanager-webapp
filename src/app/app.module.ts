@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersComponent } from './users/users.component';
 import { BookingsModule } from './bookings/bookings.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     NavbarComponent,
-    UsersComponent    
+    UsersComponent,
+    HomeComponent    
   ],
   imports: [
     BrowserModule,

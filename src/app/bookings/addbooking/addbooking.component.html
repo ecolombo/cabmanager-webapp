@@ -41,8 +41,8 @@
                 <label for="Category" class="text-sm">Category</label>
                 <select id="Category" name="category" class="form-select shadow-none form-control" formControlName="category"
                   [compareWith]="compareByCategoryId" (ngModelChange)="onSelectValueChangeCategory($event)" required>
-                  <option *ngFor="let category of categoryList; index as idx" [ngValue]="category">
-                      {{ category.name }}
+                  <option *ngFor="let cat of categoryList; index as idx" [ngValue]="cat">
+                      {{ cat.name }}
                   </option>
                 </select>
               </div>

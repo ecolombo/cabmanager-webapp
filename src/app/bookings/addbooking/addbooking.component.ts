@@ -68,27 +68,31 @@ export class AddbookingComponent implements OnInit {
         fare: [{value: "", disabled: true }],
       });
     } else {
-      this.bookingForm = this.formBuilder.group({
+      console.log("feeding data: "+bookingObj.user.fullName);
+      this.bookingForm = this.formBuilder.group({        
         bookingId: [null],
-        user: [bookingObj.name, Validators.required],
-        from: [bookingObj.from.name, Validators.required], 
-        to: [bookingObj.to.name, Validators.required],
-        category: [bookingObj.category.name, Validators.required],
+        user: [bookingObj.user, Validators.required],
+        from: [bookingObj.from, Validators.required], 
+        to: [bookingObj.to, Validators.required],
+        category: [bookingObj.category, Validators.required],
         pricePerKM: [{value: bookingObj.category.pricePerKM, disabled: true }],
         distance: [{value: bookingObj.distance, disabled: true }],
         fare: [{value: bookingObj.fare, disabled: true }],
       });
+      
     }
+
   }
 
   updateForm() {
-  
+
+
+ 
     let ppkm = this.bookingForm.get('category')?.getRawValue().pricePerKM;
     if (!isNaN(ppkm)) {
       this.bookingForm.get('pricePerKM')?.setValue(ppkm);
     }
 
-    //console.log(this.locationList.find(x => x.locationId === location.locationId));
     let x1 = this.bookingForm.get('from')?.getRawValue().xcoord;
     let y1 = this.bookingForm.get('from')?.getRawValue().ycoord;
     let x2 = this.bookingForm.get('to')?.getRawValue().xcoord;
@@ -112,9 +116,9 @@ export class AddbookingComponent implements OnInit {
   }
 
   onSelectedValueChangeUser(user: any) {
-    this.bookingForm.patchValue({
-      user: this.userList.find(x => x.userId === user.userId)
-    })
+//    this.bookingForm.patchValue(
+//        {user: this.userList.find(x => x.userId === user.userId) }
+//      )
   }
 
   compareByUserId(user1: User, user2: User) {
@@ -122,9 +126,6 @@ export class AddbookingComponent implements OnInit {
   }
 
   onSelectedValueChangeLocation(location: any) {
-    this.bookingForm.patchValue({
-      location: this.locationList.find(x => x.locationId === location.locationId)
-    })
     this.updateForm();
   }
 
@@ -133,9 +134,6 @@ export class AddbookingComponent implements OnInit {
   }
 
   onSelectValueChangeCategory(category: any) {
-    // this.bookingForm.patchValue({
-    //  category: this.categoryList.find(x => x.categoryId === category.categoryId)
-    // })
     this.updateForm();
   }
 

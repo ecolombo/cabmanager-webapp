@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="p-3 mb-2 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">CAB Manager </h1>
+        <p class="col-md-8 fs-4">
+          Manage your bookings and passanger profiles right away!
+        </p>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Manage bookings</h2>
+          <!-- <p>Currently booked trips: 1</p>-->
+          <button class="btn btn-outline-light mt-1" type="button" [routerLink]="['/bookings']">Manage Bookings</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Manage user profiles</h2>
+          <!--<p>Currently registered users: 1</p>-->
+          <button class="btn btn-outline-secondary mt-1" type="button" [routerLink]="['/users']">Manage users</button>
+        </div>
+      </div>
+    </div>
+  </div>

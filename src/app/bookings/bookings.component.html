@@ -49,6 +49,20 @@
                         </tbody>
                       </table>
                 </div>
+                <div class="row mt-1">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-end">
+                          <li class="page-item">                        
+                            <button class="page-link" (click)="prevPage()" [disabled] = !prevPageEnabled>Previous</button>
+                          </li>
+                          <li class="page-item">
+                            <button class="page-link" disabled>{{pageable.page+1}}</button>                        
+                          </li>                      
+                          <li class="page-item">
+                            <button class="page-link" (click)="nextPage()" [disabled] = !nextPageEnabled>Next</button>                        
+                          </li>
+                        </ul>
+                      </nav>
             </div>
         </div>
     </div>
