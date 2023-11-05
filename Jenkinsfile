@@ -29,7 +29,7 @@ pipeline {
 
         stage('Docker deploy') {
             steps {
-                echo '----------------- This is a docker deploment phase ----------'
+                echo '----------------- This is a docker deployment phase ----------'
                 sh '''
                 (if  [ $(docker ps -a | grep cabmanager-webapp-container | cut -d " " -f1) ]; then \
                         echo $(docker rm -f cabmanager-webapp-container); \
@@ -37,7 +37,7 @@ pipeline {
                      else \
                     echo OK; \
                  fi;);
-                docker container run --network cabmanager-webapp-network --restart always --name cabmanager-webapp-container -p 4200:80 -d cabmanager-webapp
+                docker container run --network cabmanager-webapp-network --restart always --name cabmanager-webapp-container -p 9999:80 -d cabmanager-webapp
             '''
             }
         }
