@@ -37,7 +37,7 @@ pipeline {
                      else \
                     echo OK; \
                  fi;);
-                docker container run --network cabmanager-webapp-network --restart always --name cabmanager-webapp-container -p 9999:80 -d cabmanager-webapp
+                docker container run --network cabmanager-webapp-network --restart always --name cabmanager-webapp-container -p 4200:80 -d cabmanager-webapp
             '''
             }
         }
